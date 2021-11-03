@@ -1,0 +1,1417 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/* CSS RESET */
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+ margin:0;
+ padding:0;
+ border:0;
+ outline:0;
+ font-size:100%;
+ vertical-align:baseline;
+ background:transparent;
+ cursor: none;
+}
+
+/* IMPORTAR FONTES */
+
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;1,100;1,900&display=swap');
+
+/* ------ ROOT -------- */
+
+html,
+body,
+button,
+a,
+main,
+header,
+footer {
+  cursor: none;
+}
+
+
+:root {
+	--background-color: #FFFBE4;
+	--text-color: #1B1B1B;
+	--red: #FF6666;
+	--green: #9FD692;
+	--yellow: #FFD600;
+	--blue: #1A2D5E;
+	--orange: #FF8D33;
+	--bright-blue: #5786FF;
+}
+
+body,html {
+	margin:0;
+	padding:0;	
+	font-family: 'Urbanist', sans-serif;
+	font-kerning: normal;
+	background-color: var(--background-color);
+}
+
+
+
+/* ------MAIN CSS CODE-------- */
+/* super longo por causa dos media queries oops, não está mobile first porque a interação em geral funciona melhor em desktop... mas tem 3 breakpoints! */
+
+.cursor {
+	width: 0;
+	height: 0;
+	border-left: 1rem solid transparent;
+	border-right: 1rem solid transparent;
+	border-bottom: 2rem solid var(--blue);
+	position: absolute;
+	transform: translate(-50%, -50%);
+	transform: rotate(-20deg);
+	pointer-events: none;
+	z-index: 4;
+}
+
+
+
+/* -- closable alert box -- */
+#container {
+	position: absolute;
+	z-index: 2;
+	left: 68vw;
+	top: 8.7vw;
+	background-color: var(--yellow);
+	width: 25vw;
+	height: 13vw;
+    padding: 10px;
+    box-sizing: border-box;
+	border-radius: 15px;
+}
+
+.circle {
+	display: inline-block;
+	height: 1vw;
+	width: 1vw;
+	background-color: var(--green);
+	border-radius: 50%;
+	margin-left: 15px;
+	margin-right: 2px;
+	margin-bottom: 2px;
+	margin-top: 10px;
+}
+
+.text-box {
+	font-size: 1.7vw;
+	line-height: 1.4em;
+	font-weight: 600;
+	color: var(--red);
+	padding: 1.4vw;
+}
+
+#onhover:hover {
+	background-color: var(--red);
+}
+
+
+/* -- data practices guideline -- */
+h1 {
+	font-size: 7vw;
+	color: var(--text-color);
+	text-align: center;
+	padding-top: 17vw;
+	padding-bottom: 6vw;
+	padding-left: 10vw;
+	padding-right: 10vw;
+	z-index: 1;
+}
+
+.guideline {
+	position: relative;
+	width: 7vw;
+}
+
+
+/* -- seta de scroll -- */
+.arrow-down {	
+	position: relative;
+	width: 3vw;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	animation: arrow-anim 1s linear infinite;
+	transition: all 0.2s ease-in;
+}
+
+@keyframes arrow-anim {
+	0% {
+	  	top: 0px;
+	}
+  
+	50% {
+		top: 50px;
+	}
+  
+	100% {
+		top: 0px;
+	}
+  }
+
+
+
+/* -- data transparency in the age of privacy protection -- */
+h2 {
+	font-size: 5vw;
+	font-weight: 700;
+	line-height: 1.3em;
+	color: var(--text-color);
+	text-align: center;
+	padding-top: 25vw;
+	padding-bottom: 35vw;
+	padding-left: 12vw;
+	padding-right: 12vw;
+}
+
+#transparency {
+	text-decoration: underline;
+	transition: font-variation-settings 0.2s ease;
+	animation: transparency-anim 2s linear infinite;
+	animation-direction: alternate;
+	font-style: italic;
+	
+  }
+
+  @keyframes transparency-anim {
+	0% {
+	  font-variation-settings: "wght" 200;
+	}
+	25% {
+	  font-variation-settings: "wght" 100;
+	}
+	50% {
+		font-variation-settings: "wght" 300;
+	  }
+	75% {
+	  font-variation-settings: "wght" 100;
+	}
+	100% {
+		font-variation-settings: "wght" 200;
+	  }
+  }
+
+ #privacy {
+	text-decoration: underline;
+	font-variation-settings: "wdth" 700;
+	animation: privacy-anim 2s linear infinite;
+	transition: all 0.2s ease-out;
+  }
+
+  @keyframes privacy-anim {
+	0% {
+	  letter-spacing: 0;
+	  font-variation-settings: "wght" 700;
+	}
+  
+	50% {
+	  letter-spacing: -10px;
+	  font-variation-settings: "wght" 900;
+	}
+  
+	100% {
+	  letter-spacing: 0;
+	  font-variation-settings: "wght" 700;
+	}
+  }
+
+
+/* -- consumers worried about data privacy? -- */
+.h2-2 {
+	font-size: 5vw;
+	font-weight: 700;
+	line-height: 1.2em;
+	color: var(--text-color);
+	text-align: center;
+	padding-top: 10vw;
+	padding-bottom: 25vw;
+	padding-left: 15vw;
+	padding-right: 15vw;
+	position: relative;
+}
+
+/* -- consumers pop ups -- */
+/* -- is my information being shared? -- */
+#popup {
+	position: absolute;
+	z-index: 2;
+	left: 10vw;
+	top: 0vw;
+	background-color: var(--bright-blue);
+	width: 20vw;
+	height: 7.5vw;
+    box-sizing: border-box;
+	border-radius: 15px;
+}
+
+.popup-text {
+	text-align: center;
+	font-size: 1.7vw;
+	line-height: 1.4em;
+	font-weight: 600;
+	color: var(--yellow);
+	padding: 1.4vw;
+}
+
+/* -- what do they do with my personal information? -- */
+#popup-1 {
+	position: absolute;
+	z-index: 2;
+	left: 21vw;
+	top: 19vw;
+	background-color: var(--green);
+	width: 18vw;
+	height: 10vw;
+    box-sizing: border-box;
+	border-radius: 15px;
+}
+
+.popup-text-1 {
+	text-align: center;
+	font-size: 1.7vw;
+	line-height: 1.4em;
+	font-weight: 600;
+	color: var(--orange);
+	padding: 1.4vw;
+}
+
+/* -- do they know my location? -- */
+#popup-2 {
+	position: absolute;
+	z-index: 2;
+	left: 59.8vw;
+	top: 10vw;
+	background-color: var(--orange);
+	width: 12vw;
+	height: 10vw;
+    box-sizing: border-box;
+	border-radius: 15px;
+}
+
+.popup-text-2 {
+	text-align: center;
+	font-size: 1.7vw;
+	line-height: 1.4em;
+	font-weight: 600;
+	color: var(--green);
+	padding: 1.4vw;
+}
+
+/* -- what data did they collect without my permission? -- */
+#popup-3 {
+	position: absolute;
+	z-index: 2;
+	left: 48vw;
+	top: 2.5vw;
+	background-color: var(--yellow);
+	width: 13vw;
+	height: 15vw;
+    box-sizing: border-box;
+	border-radius: 15px;
+}
+
+.popup-text-3 {
+	text-align: center;
+	font-size: 1.7vw;
+	line-height: 1.4em;
+	font-weight: 600;
+	color: var(--red);
+	padding: 1.4vw;
+}
+
+/* -- what are all these cookies after all? -- */
+#popup-4 {
+	position: absolute;
+	z-index: 2;
+	left: 77vw;
+	top: 16vw;
+	background-color: var(--red);
+	width: 16vw;
+	height: 10vw;
+    box-sizing: border-box;
+	border-radius: 15px;
+}
+
+.popup-text-4 {
+	text-align: center;
+	font-size: 1.7vw;
+	line-height: 1.4em;
+	font-weight: 600;
+	color: var(--yellow);
+	padding: 1.4vw;
+}
+
+/* -- do they make these terms and conditions too long and boring to read on purpose? -- */
+#popup-5 {
+	position: absolute;
+	z-index: 2;
+	left: 73vw;
+	top: -9vw;
+	background-color: var(--bright-blue);
+	width: 13vw;
+	height: 22vw;
+    box-sizing: border-box;
+	border-radius: 15px;
+}
+
+.popup-text-5 {
+	text-align: center;
+	font-size: 1.7vw;
+	line-height: 1.4em;
+	font-weight: 600;
+	color: var(--yellow);
+	padding: 1.4vw;
+}
+
+/* -- empty popup 1 -- */
+#popup-6 {
+	position: absolute;
+	z-index: 2;
+	left: 29vw;
+	top: 10vw;
+	background-color: var(--red);
+	width: 15vw;
+	height: 13vw;
+    box-sizing: border-box;
+	border-radius: 15px;
+}
+
+/* -- popup X -- */
+#popup-7 {
+	position: absolute;
+	z-index: 2;
+	left: 58vw;
+	top: -4vw;
+	background-color: var(--green);
+	width: 6vw;
+	height: 5vw;
+    box-sizing: border-box;
+	border-radius: 15px;
+}
+
+.popup-text-7 {
+	text-align: center;
+	font-size: 2.5vw;
+	line-height: 2em;
+	font-weight: 600;
+	color: var(--yellow);
+}
+
+/* -- popup X 2 -- */
+#popup-8 {
+	position: absolute;
+	z-index: 2;
+	left: 43vw;
+	top: 20vw;
+	background-color: var(--bright-blue);
+	width: 6vw;
+	height: 5vw;
+    box-sizing: border-box;
+	border-radius: 15px;
+}
+
+.popup-text-8 {
+	text-align: center;
+	font-size: 2.5vw;
+	line-height: 2em;
+	font-weight: 600;
+	color: var(--yellow);
+}
+
+/* -- empty popup 2 -- */
+#popup-9 {
+	position: absolute;
+	z-index: 2;
+	left: 20vw;
+	top: -3vw;
+	background-color: var(--yellow);
+	width: 16vw;
+	height: 18vw;
+    box-sizing: border-box;
+	border-radius: 15px;
+}
+
+/* -- empty popup 3 -- */
+#popup-10 {
+	position: absolute;
+	z-index: 2;
+	left: 47vw;
+	top: 13vw;
+	background-color: var(--green);
+	width: 17vw;
+	height: 21vw;
+    box-sizing: border-box;
+	border-radius: 15px;
+}
+
+
+
+/* BUILD TRUST INTERACTION */
+
+.wrap { /* ocupa section inteira */
+	display: flex;
+	justify-content: center; 
+	width: 100vw;
+	height: 100vh;
+	background-color:var(--background-color);
+}
+
+.rectangle { /* caixa que contém as palavras */
+	display: flex;
+	width: 80vh;
+	height: 80vh;
+	background-color:var(--background-color);	
+}
+
+.box { /* caixas que contêm as letras */
+	width: 10%; /* 10 letras por 100% */
+	height: 100%;
+	box-sizing: border-box;
+}
+
+.letter-1 { /* letras */
+	display: inline-block;
+	font-size: 65vh;
+	font-weight: 700;
+	margin: 0;
+	padding: 0;
+	transform-origin: bottom left; /* transforma-se de baixo para cima */
+	color:var(--text-color);
+}
+
+/* tentar diminuir a width da letra i para +- metade não funcionou (mas funcionou no privacy/special!) */
+/* .letteri-1 {
+	width: 5%;
+} */
+
+
+/* -- by creating greater transparency -- */
+.p1 {
+	font-size: 3vw;
+	font-weight: 400;
+	line-height: 1.5em;
+	color: var(--text-color);
+	text-align: center;
+	padding-bottom: 20vw;
+	padding-left: 2vw;
+	padding-right: 2vw;
+}
+
+.greater {
+	font-variation-settings: "wdth" 50;
+	font-variation-settings: "wght" 900;
+	font-weight: 400;
+	letter-spacing: 2px;
+	animation: bigger 4s linear infinite;
+	animation-play-state: paused;
+	animation-direction: reverse;
+	transition: all 0.2s ease-out;
+}
+
+@keyframes bigger {
+	0% {
+	  letter-spacing: 2px;
+	  font-variation-settings: "wght" 400;
+	  font-size: 3vw;
+	  opacity: 1;
+	}
+  
+	50% {
+	  letter-spacing: 12px;
+	  font-variation-settings: "wght" 900;
+	  font-size: 6vw;
+	  opacity: 0.1;
+	}
+  
+	100% {
+	  letter-spacing: 2px;
+	  font-variation-settings: "wght" 400;
+	  font-size: 3vw;
+	  opacity: 1;
+	}
+  }
+
+
+/* -- balance people's right to privacy (...) -- */
+.p2 {
+	font-size: 3vw;
+	font-weight: 400;
+	line-height: 1.4em;
+	color: var(--text-color);
+	text-align: center;
+	padding-bottom: 13vw;
+	padding-left: 10vw;
+	padding-right: 10vw;
+}
+
+/* PRIVACY/SPECIAL INTERACTION */
+
+.wrapper {
+	display: flex;
+	justify-content: center; 
+	width: 100vw;
+	height: 80vh;
+	background-color:var(--background-color);
+	overflow: hidden;
+}
+
+.square {
+	display: flex;
+  	flex-wrap: wrap;
+	width: 80vh;
+	height: 80vh;
+	justify-content: center;
+	background-color:var(--background-color);	
+}
+
+.division {
+	width: calc(100%/7);
+	height: 50%;
+	box-sizing: border-box;
+}
+
+.letter {
+	display: inline-block;
+	font-size: 50vh;
+	font-weight: 700;
+	margin: 0;
+	padding: 0;
+	line-height: .8;
+	transform-origin: top left; /* transforma-se de cima para baixo */
+	color:var(--text-color);
+}
+
+/* diminuir a width da letra i para +- metade para não ocupar o espaço todo */
+.letteri {
+	width: 7%;
+}
+
+/* -- seta de scroll 2 (to make a heads up for the conclusion) -- */
+.arrow-down2 {	
+	position: relative;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 3vw;
+	/* left: 48.5vw; */
+	animation: arrow-anim2 1s linear infinite;
+	transition: all 0.2s ease-in;
+	padding-top: 10vw;
+}
+
+@keyframes arrow-anim2 {
+	0% {
+	  	top: 0px;
+	}
+  
+	50% {
+		top: 50px;
+	}
+  
+	100% {
+		top: 0px;
+	}
+  }
+
+
+/* ASK FOR FORGIVENESS/PERMISSION */
+
+.two-phrases {
+	padding-top: 22vw;
+	padding-bottom: 3vw;
+	padding-left: 10vw;
+	padding-right: 10vw;
+}
+
+.p3 {
+	font-size: 5vw;
+	font-weight: 400;
+	line-height: 0.6em;
+	color: var(--text-color);
+	text-align: center;
+	padding-bottom: 4vw;
+}
+
+#replace1, #replace2 {
+	font-weight: 600;
+	color: var(--red);
+	position: relative;
+	display: inline-block;
+	animation: shake .8s alternate infinite ;
+}
+
+
+@keyframes shake {
+	0% { transform: skewX(-15deg); }
+	5% { transform: skewX(15deg); }
+	10% { transform: skewX(-15deg); }
+	15% { transform: skewX(15deg); }
+	20% { transform: skewX(0deg); }
+	100% { transform: skewX(0deg); }  
+  }
+
+
+/* ASK FOR FORGIVENESS/PERMISSION */
+.stamp {
+	width: 15vw;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	padding-bottom: 10vw;
+}
+
+
+/* COLOPHON */
+
+.split {
+	display:flex;
+	flex-direction:row;
+}
+
+.split > * {
+	flex-basis:100%;
+}
+
+.colophon {
+	font-size: 1vw;
+	margin-bottom: 1vw;
+	margin-left: 2vw;
+	margin-right: 2vw;
+	border-top: 1px solid var(--text-color);
+	box-sizing: border-box;
+}
+
+.colophon-text {
+	padding-top: 1vw;
+}
+
+.colophon-center {
+	text-align: center;
+}
+
+.colophon-right {
+	text-align: right;
+}
+
+
+
+
+
+
+/* -------------- MOBILE MEDIA QUERIE -------------- */
+
+@media only screen and (max-width: 600px) {
+
+
+	/* -- closable alert box -- */
+	#container {
+		left: 7vw;
+		top: 13vw;
+		width: 55vw;
+		height: 41vw;
+	}
+
+	.circle {
+		height: 3vw;
+		width: 3vw;
+	}
+
+	.text-box {
+		font-size: 5vw;
+		line-height: 1.4em;
+	}		
+	
+
+	/* -- data practices guideline -- */
+	h1 {
+		font-size: 17vw;
+		line-height: 1.1em;
+		padding-top: 70vw;
+		padding-bottom: 45vw;
+		padding-left: 5vw;
+		padding-right: 5vw;
+		z-index: 1;
+	}
+
+	.guideline {
+		position: absolute;
+		top: 130vw;
+		left: 41vw;
+		width: 18vw;
+	}
+
+	/* -- setas de scroll -- */
+	.arrow-down {	
+		width: 7vw;
+	}
+
+	/* -- data transparency in the age of privacy protection -- */
+	h2 {
+		font-size: 13vw;
+		line-height: 1.1em;
+		padding-top: 85vw;
+		padding-bottom: 120vw;
+		padding-left: 7vw;
+		padding-right: 7vw;
+	}
+
+	/* -- consumers worried about data privacy? -- */
+	.h2-2 {
+		font-size: 12vw;
+		line-height: 1.2em;
+		padding-top: 10vw;
+		padding-bottom: 110vw;
+		padding-left: 7vw;
+		padding-right: 7vw;
+	}
+
+	/* -- consumers pop ups -- */
+	/* -- is my information being shared? -- */
+	#popup {
+		left: 6vw;
+		top: 31vw;
+		width: 50vw;
+		height: 18vw;
+		border-radius: 10px;
+	}
+
+	.popup-text {
+		font-size: 4.3vw;
+		line-height: 1.4em;
+		padding: 3vw;
+	}
+
+	/* -- what do they do with my personal information? -- */
+	#popup-1 {
+		left: 36vw;
+		top: 60vw;
+		width: 43vw;
+		height: 24vw;
+		border-radius: 10px;
+	}
+
+	.popup-text-1 {
+		font-size: 4.3vw;
+		line-height: 1.4em;
+		padding: 3vw;
+	}
+
+	/* -- do they know my location? -- */
+	#popup-2 {
+		left: 35vw;
+		top: 10vw;
+		width: 30vw;
+		height: 24vw;
+		border-radius: 10px;
+	}
+
+	.popup-text-2 {
+		font-size: 4.3vw;
+		line-height: 1.4em;
+		padding: 3vw;
+	}
+
+	/* -- what data did they collect without my permission? -- */
+	#popup-3 {
+		left: 14vw;
+		top: -24vw;
+		width: 31vw;
+		height: 37vw;
+		border-radius: 10px;
+	}
+
+	.popup-text-3 {
+		font-size: 4.3vw;
+		line-height: 1.4em;
+		padding: 3vw;
+	}
+
+	/* -- what are all these cookies after all? -- */
+	#popup-4 {
+		left: 52vw;
+		top: 38vw;
+		width: 42vw;
+		height: 24vw;
+		border-radius: 10px;
+	}
+
+	.popup-text-4 {
+		font-size: 4.3vw;
+		line-height: 1.4em;
+		padding: 3vw;
+	}
+
+	/* -- do they make these terms and conditions too long and boring to read on purpose? -- */
+	#popup-5 {
+		left: 60vw;
+		top: -28vw;
+		width: 32vw;
+		height: 54.5vw;
+		border-radius: 10px;
+	}
+
+	.popup-text-5 {
+		font-size: 4.3vw;
+		line-height: 1.4em;
+		padding: 3vw;
+	}
+
+	/* -- empty popup 1 -- */
+	#popup-6 {
+		left: 10vw;
+		top: 5vw;
+		width: 33vw;
+		height: 31vw;
+		border-radius: 10px;
+	}
+
+	/* -- popup X -- */
+	#popup-7 {
+		left: 69vw;
+		top: 24.5vw;
+		width: 14vw;
+		height: 12vw;
+		border-radius: 10px;
+	}
+
+	.popup-text-7 {
+		font-size: 6.5vw;
+		line-height: 2em;
+	}
+
+	/* -- popup X 2 -- */
+	#popup-8 {
+		left: 6vw;
+		top: -32vw;
+		width: 14vw;
+		height: 12vw;
+		border-radius: 10px;
+	}
+
+	.popup-text-8 {
+		font-size: 6.5vw;
+		line-height: 2em;
+	}
+
+	/* -- empty popup 2 -- */
+	#popup-9 {
+		left: 42vw;
+		top: 23vw;
+		width: 45vw;
+		height: 39vw;
+		border-radius: 10px;
+	}
+
+	/* -- empty popup 3 -- */
+	#popup-10 {
+		left: 35vw;
+		top: -42vw;
+		width: 48vw;
+		height: 40vw;
+		border-radius: 10px;
+	}
+
+	/* BUILD TRUST INTERACTION */
+	/* há algum problema com a largura do elemento que exige que a página faça scroll para a direita... não consigo perceber porquê (tanto neste elemento como no privacy/special?) */
+
+	.wrap { /* ocupa section inteira */
+		width: 100vw;
+		height: 80vh;
+	}
+
+	.rectangle { /* caixa que contém as palavras */
+		width: 40vh;
+		height: 40vh;	
+	}
+	
+	.letter-1 { /* letras */
+		font-size: 33vh;
+	}
+
+	/* -- by creating greater transparency -- */
+	.p1 {
+		font-size: 5vw;
+		font-weight: 400;
+		line-height: 1.5em;
+		color: var(--text-color);
+		text-align: center;
+		padding-bottom: 85vw;
+		padding-left: 20vw;
+		padding-right: 20vw;
+	}
+
+	@keyframes bigger {
+		0% {
+		  letter-spacing: 2px;
+		  font-variation-settings: "wght" 400;
+		  font-size: 5vw;
+		  opacity: 1;
+		}
+	  
+		50% {
+		  letter-spacing: 7px;
+		  font-variation-settings: "wght" 900;
+		  font-size: 7vw;
+		  opacity: 0.1;
+		}
+	  
+		100% {
+		  letter-spacing: 2px;
+		  font-variation-settings: "wght" 400;
+		  font-size: 5vw;
+		  opacity: 1;
+		}
+	  }
+
+	/* -- balance people's right to privacy (...) -- */
+	.p2 {
+		font-size: 7vw;
+		font-weight: 400;
+		line-height: 1.5em;
+		padding-bottom: 40vw;
+		padding-left: 5vw;
+		padding-right: 5vw;
+	}
+
+	/* PRIVACY/SPECIAL INTERACTION */
+	/* há algum problema com a largura do elemento que exige que a página faça scroll para a direita... não consigo perceber porquê (tanto neste elemento como no build trust?) */
+
+	.wrapper {
+		width: 100vw;
+		height: 40vh;
+	}
+
+	.square {
+		width: 40vh;
+		height: 40vh;	
+	}
+
+	.letter {
+		font-size: 25vh;
+	}
+
+	/* -- seta de scroll 2 -- */
+	.arrow-down2 {	
+		width: 7vw;
+		padding-top: 40vw;
+	}
+
+	/* ASK FOR FORGIVENESS/PERMISSION */
+
+	.two-phrases {
+		padding-top: 60vw;
+		padding-bottom: 12vw;
+		padding-left: 11vw;
+		padding-right: 11vw;
+	}
+
+	.p3 {
+		font-size: 15vw;
+		line-height: 1em;
+		padding-bottom: 15vw;
+	}
+
+	/* ASK FOR FORGIVENESS/PERMISSION */
+	.stamp {
+		width: 50vw;
+		padding-bottom: 30vw;
+	}
+
+	/* COLOPHON */
+
+	.split {
+		flex-direction: column;
+	}
+
+	.split > * {
+		flex-basis:100%;
+	}
+
+	.colophon {
+		font-size: 4vw;
+		margin-bottom: 7vw;
+		margin-left: 5vw;
+		margin-right: 5vw;
+	}
+
+	.colophon-text {
+		padding-top: 2vw;
+	}
+
+	.colophon-left {
+		padding-top: 1vw;
+	}
+
+	.colophon-center {
+		text-align: left;
+	}
+
+	.colophon-right {
+		text-align: left;
+	}
+
+}
+
+
+/* -------------- TABLET MEDIA QUERIE -------------- */
+
+@media only screen and (min-width: 600px) and (max-width: 992px) {
+
+
+	/* -- closable alert box -- */
+	#container {
+		left: 10vw;
+		top: 14vw;
+		width: 55vw;
+		height: 28vw;
+	}
+
+	.circle {
+		height: 2.5vw;
+		width: 2.5vw;
+	}
+
+	.text-box {
+		font-size: 4vw;
+		line-height: 1.4em;
+	}		
+	
+
+	/* -- data practices guideline -- */
+	h1 {
+		font-size: 13vw;
+		line-height: 1.1em;
+		padding-top: 55vw;
+		padding-bottom: 16vw;
+		padding-left: 3vw;
+		padding-right: 3vw;
+	}
+
+	.guideline {
+		position: relative;
+		width: 12vw;
+	}
+
+	/* -- setas de scroll -- */
+	.arrow-down {	
+		width: 7vw;
+	}
+
+	/* -- data transparency in the age of privacy protection -- */
+	h2 {
+		font-size: 10vw;
+		line-height: 1.2em;
+		padding-top: 60vw;
+		padding-bottom: 100vw;
+		padding-left: 7vw;
+		padding-right: 7vw;
+	}
+
+	/* -- consumers worried about data privacy? -- */
+	.h2-2 {
+		font-size: 12vw;
+		line-height: 1.2em;
+		padding-top: 10vw;
+		padding-bottom: 80vw;
+		padding-left: 7vw;
+		padding-right: 7vw;
+	}
+
+	/* -- consumers pop ups -- */
+	/* -- is my information being shared? -- */
+	#popup {
+		left: 6vw;
+		top: 31vw;
+		width: 50vw;
+		height: 18vw;
+		border-radius: 10px;
+	}
+
+	.popup-text {
+		font-size: 4.3vw;
+		line-height: 1.4em;
+		padding: 3vw;
+	}
+
+	/* -- what do they do with my personal information? -- */
+	#popup-1 {
+		left: 36vw;
+		top: 60vw;
+		width: 43vw;
+		height: 24vw;
+		border-radius: 10px;
+	}
+
+	.popup-text-1 {
+		font-size: 4.3vw;
+		line-height: 1.4em;
+		padding: 3vw;
+	}
+
+	/* -- do they know my location? -- */
+	#popup-2 {
+		left: 35vw;
+		top: 10vw;
+		width: 30vw;
+		height: 24vw;
+		border-radius: 10px;
+	}
+
+	.popup-text-2 {
+		font-size: 4.3vw;
+		line-height: 1.4em;
+		padding: 3vw;
+	}
+
+	/* -- what data did they collect without my permission? -- */
+	#popup-3 {
+		left: 14vw;
+		top: -24vw;
+		width: 31vw;
+		height: 37vw;
+		border-radius: 10px;
+	}
+
+	.popup-text-3 {
+		font-size: 4.3vw;
+		line-height: 1.4em;
+		padding: 3vw;
+	}
+
+	/* -- what are all these cookies after all? -- */
+	#popup-4 {
+		left: 52vw;
+		top: 38vw;
+		width: 42vw;
+		height: 24vw;
+		border-radius: 10px;
+	}
+
+	.popup-text-4 {
+		font-size: 4.3vw;
+		line-height: 1.4em;
+		padding: 3vw;
+	}
+
+	/* -- do they make these terms and conditions too long and boring to read on purpose? -- */
+	#popup-5 {
+		left: 60vw;
+		top: -28vw;
+		width: 32vw;
+		height: 54.5vw;
+		border-radius: 10px;
+	}
+
+	.popup-text-5 {
+		font-size: 4.3vw;
+		line-height: 1.4em;
+		padding: 3vw;
+	}
+
+	/* -- empty popup 1 -- */
+	#popup-6 {
+		left: 10vw;
+		top: 5vw;
+		width: 33vw;
+		height: 31vw;
+		border-radius: 10px;
+	}
+
+	/* -- popup X -- */
+	#popup-7 {
+		left: 69vw;
+		top: 24.5vw;
+		width: 14vw;
+		height: 12vw;
+		border-radius: 10px;
+	}
+
+	.popup-text-7 {
+		font-size: 6.5vw;
+		line-height: 2em;
+	}
+
+	/* -- popup X 2 -- */
+	#popup-8 {
+		left: 6vw;
+		top: -32vw;
+		width: 14vw;
+		height: 12vw;
+		border-radius: 10px;
+	}
+
+	.popup-text-8 {
+		font-size: 6.5vw;
+		line-height: 2em;
+	}
+
+	/* -- empty popup 2 -- */
+	#popup-9 {
+		left: 42vw;
+		top: 23vw;
+		width: 45vw;
+		height: 39vw;
+		border-radius: 10px;
+	}
+
+	/* -- empty popup 3 -- */
+	#popup-10 {
+		left: 35vw;
+		top: -42vw;
+		width: 48vw;
+		height: 40vw;
+		border-radius: 10px;
+	}
+
+	/* BUILD TRUST INTERACTION */
+	/* há algum problema com a largura do elemento que exige que a página faça scroll para a direita... não consigo perceber porquê (tanto neste elemento como no privacy/special?) */
+
+	.wrap { /* ocupa section inteira */
+		width: 100vw;
+		height: 80vh;
+	}
+
+	.rectangle { /* caixa que contém as palavras */
+		width: 50vh;
+		height: 50vh;	
+	}
+	
+	.letter-1 { /* letras */
+		font-size: 40vh;
+	}
+
+	/* -- by creating greater transparency -- */
+	.p1 {
+		font-size: 4vw;
+		font-weight: 400;
+		line-height: 1.5em;
+		color: var(--text-color);
+		text-align: center;
+		padding-bottom: 60vw;
+		padding-left: 7vw;
+		padding-right: 7vw;
+	}
+
+	@keyframes bigger {
+		0% {
+		  letter-spacing: 2px;
+		  font-variation-settings: "wght" 400;
+		  font-size: 4vw;
+		  opacity: 1;
+		}
+	  
+		50% {
+		  letter-spacing: 7px;
+		  font-variation-settings: "wght" 900;
+		  font-size: 6vw;
+		  opacity: 0.1;
+		}
+	  
+		100% {
+		  letter-spacing: 2px;
+		  font-variation-settings: "wght" 400;
+		  font-size: 4vw;
+		  opacity: 1;
+		}
+	  }
+
+	/* -- balance people's right to privacy (...) -- */
+	.p2 {
+		font-size: 6vw;
+		font-weight: 400;
+		line-height: 1.5em;
+		padding-bottom: 30vw;
+		padding-left: 7vw;
+		padding-right: 7vw;
+	}
+
+	/* PRIVACY/SPECIAL INTERACTION */
+	/* há algum problema com a largura do elemento que exige que a página faça scroll para a direita... não consigo perceber porquê (tanto neste elemento como no build trust?) */
+
+	.wrapper {
+		width: 100vw;
+		height: 50vh;
+	}
+
+	.square {
+		width: 50vh;
+		height: 50vh;	
+	}
+
+	.letter {
+		font-size: 25vh;
+	}
+
+	/* -- seta de scroll 2 -- */
+	.arrow-down2 {	
+		width: 7vw;
+		padding-top: 40vw;
+	}
+
+	/* ASK FOR FORGIVENESS/PERMISSION */
+
+	.two-phrases {
+		padding-top: 40vw;
+		padding-bottom: 12vw;
+		padding-left: 11vw;
+		padding-right: 11vw;
+	}
+
+	.p3 {
+		font-size: 10vw;
+		line-height: 1em;
+		padding-bottom: 10vw;
+	}
+
+	/* ASK FOR FORGIVENESS/PERMISSION */
+	.stamp {
+		width: 40vw;
+		padding-bottom: 30vw;
+	}
+
+	/* COLOPHON */
+
+	.split {
+		flex-direction: column;
+	}
+
+	.colophon {
+		font-size: 3vw;
+		margin-bottom: 6vw;
+		margin-left: 5vw;
+		margin-right: 5vw;
+		border-top: 2px solid var(--text-color);
+		box-sizing: border-box;
+	}
+
+	.colophon-text {
+		padding-top: 1.5vw;
+	}
+
+	.colophon-left {
+		padding-top: 1vw;
+	}
+
+	.colophon-center {
+		text-align: left;
+	}
+
+	.colophon-right {
+		text-align: left;
+	}
+
+}
+
